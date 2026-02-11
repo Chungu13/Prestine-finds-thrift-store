@@ -28,7 +28,13 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-57=9tc68**6qrv9xbb-39
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '*').split(',')
+# Cleans up the list and adds Render's automatic hostname
+ALLOWED_HOSTS = [host.strip() for host in os.environ.get('ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',') if host.strip()]
+
+# Render provides this automatically - it fixes the DisallowedHost error!
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 
 # Application definition
@@ -136,11 +142,15 @@ GRAPHENE ={
     "SCHEMA": "core.schema.schema",
 }
 
-# CORS Configuration
-CORS_ALLOWED_ORIGINS = os.environ.get(
-    'CORS_ALLOWED_ORIGINS', 
-    'http://localhost:3000'
-).split(',')
+# CORS Configuration - strips spaces and removes empty entries
+CORS_ALLOWED_ORIGINS = [
+    origin.strip() 
+    for origin in os.environ.get('CORS_ALLOWED_ORIGINS', 'http://localhost:3000').split(',') 
+    if origin.strip()
+]
+
+# Optional: If you still have trouble, uncomment the line below to allow everything temporarily
+# CORS_ALLOW_ALL_ORIGINS = True
 
 # Security Settings
 SECURE_SSL_REDIRECT = os.environ.get('SECURE_SSL_REDIRECT', 'False') == 'True'
