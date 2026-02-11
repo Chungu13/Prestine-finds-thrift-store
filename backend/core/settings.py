@@ -150,7 +150,7 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 # Optional: If you still have trouble, uncomment the line below to allow everything temporarily
-# CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = True
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Add this below your CORS settings
