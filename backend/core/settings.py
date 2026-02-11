@@ -152,6 +152,12 @@ CORS_ALLOWED_ORIGINS = [
 # Optional: If you still have trouble, uncomment the line below to allow everything temporarily
 # CORS_ALLOW_ALL_ORIGINS = True
 
+# Add this below your CORS settings
+CSRF_TRUSTED_ORIGINS = [
+    "https://prestine-finds-thrift-store.onrender.com",
+    "https://prestine-finds-thrift-store.vercel.app",
+    "https://prestine-finds-thrift-store-2hltx4yi3-chungu13s-projects.vercel.app"
+]
 # Security Settings
 SECURE_SSL_REDIRECT = os.environ.get('SECURE_SSL_REDIRECT', 'False') == 'True'
 SESSION_COOKIE_SECURE = os.environ.get('SESSION_COOKIE_SECURE', 'False') == 'True'
