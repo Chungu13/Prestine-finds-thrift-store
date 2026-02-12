@@ -13,14 +13,6 @@ const nextConfig: NextConfig = {
         port: '8000',
         pathname: '/media/**',
       },
-    ],
-  },
-
-
-  /** @type {import('next').NextConfig} */
-const nextConfig = {
-  images: {
-    remotePatterns: [
       {
         protocol: 'https',
         hostname: 'prestine-finds-thrift-store.onrender.com',
@@ -29,9 +21,6 @@ const nextConfig = {
       },
     ],
   },
-},
-
-module.exports = nextConfig
 
   // Security headers
   async headers() {
