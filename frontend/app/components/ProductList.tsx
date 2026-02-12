@@ -57,8 +57,24 @@ export default function ProductList({
           key={product.id}
           className="group bg-[#FDFDFD] border border-gray-100 overflow-hidden transition-all duration-300 hover:border-gray-300"
         >
+          
           {/* 3. PRODUCT IMAGE */}
-          <div className="aspect-[3/4] w-full bg-[#F5F5F5] relative overflow-hidden">
+<div className="aspect-[3/4] w-full bg-[#F5F5F5] relative overflow-hidden">
+  {product.image ? (
+    <img
+      /* Just use product.image directly because the backend already sends the full URL */
+      src={product.image} 
+      alt={product.name}
+      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+    />
+  ) : (
+    <div className="w-full h-full flex items-center justify-center text-gray-400 text-xs tracking-widest uppercase">
+      No Image
+    </div>
+  )}
+
+
+          {/* <div className="aspect-[3/4] w-full bg-[#F5F5F5] relative overflow-hidden">
             {product.image ? (
               <img
                 src={`http://localhost:8000${product.image}`}
@@ -69,7 +85,7 @@ export default function ProductList({
               <div className="w-full h-full flex items-center justify-center text-gray-400 text-xs tracking-widest uppercase">
                 No Image
               </div>
-            )}
+            )} */}
 
             {/* Elegant Badges */}
             <div className="absolute bottom-3 left-3 flex gap-2">
