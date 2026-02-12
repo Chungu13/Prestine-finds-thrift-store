@@ -26,6 +26,13 @@ class ProductType(DjangoObjectType):
         )
 
     def resolve_image(self, info):
-        if self.image:
-            return self.image.url
-        return None
+        if not self.image:
+            return None
+        
+        # info.context is the HttpRequest object
+        if info.context is not None:
+            return info.context.build_absolute_uri(self.image.url)
+        
+        # If context is somehow missing, return the relative path 
+        # (your frontend can then prepend the backend URL)
+        return self.image.url

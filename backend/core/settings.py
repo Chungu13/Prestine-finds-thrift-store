@@ -129,6 +129,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
+# This tells Django to trust the 'https' header Render sends
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 STATIC_URL = 'static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -154,7 +157,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Add this below your CORS settings
-CSRF_TRUSTED_ORIGINS = [
+CSRF_RUSTED_ORIGINS = [
     "https://prestine-finds-thrift-store.onrender.com",
     "https://prestine-finds-thrift-store.vercel.app",
     "https://prestine-finds-thrift-store-2hltx4yi3-chungu13s-projects.vercel.app"
@@ -167,6 +170,9 @@ CSRF_COOKIE_SECURE = os.environ.get('CSRF_COOKIE_SECURE', 'False') == 'true'
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 X_FRAME_OPTIONS = 'DENY'
+
+# Tell Django to use the X-Forwarded-Host header to build absolute URLs
+USE_X_FORWARDED_HOST = True
 
 # Static files configuration for production
 STATIC_ROOT = BASE_DIR / 'staticfiles'
