@@ -23,7 +23,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from .views import health_check
 from django.http import JsonResponse
-
+from django.urls import path, re_path
+from django.views.static import serve
 
 def home(request):
     return JsonResponse({"status": "Backend is Live", "message": "Prestine Finds API is running"})
