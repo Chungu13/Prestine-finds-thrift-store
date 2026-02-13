@@ -4,7 +4,7 @@
 ## Overview
 Pristine Finds is a product catalogue system for pre-loved women's fashion, designed to make quality second-hand clothing accessible and affordable. Currently at MVP stage as a browsable catalogue, with plans to evolve into a full-featured e-commerce platform.
 
-**Live Demo:** [your-live-url.com]
+**Live Demo:** [https://prestine-finds-thrift-store.vercel.app/]
 
 ## Current Status (MVP)
 - Browse curated collection of pre-loved fashion items
@@ -36,7 +36,7 @@ Transform into a complete online thrift store with:
 
 **DevOps:**
 - Docker (Backend only)
-- [Your hosting platform - e.g., Vercel for frontend, Railway for backend]
+- [Your hosting platform -  Vercel for frontend, Render for backend]
 
 ## Quick Start
 
@@ -48,8 +48,7 @@ Transform into a complete online thrift store with:
 
 1. **Clone the repository**
 ```bash
-   git clone <repository-url>
-   cd pristine-finds
+   git clone https://github.com/Chungu13/Prestine-finds-thrift-store.git
 ```
 
 2. **Start the Backend**
@@ -130,7 +129,7 @@ This is a personal project, but feedback and suggestions are welcome!
 Private and proprietary
 
 ## Contact
-[Your Name] - [your-email@example.com]
+[Chungu Muloshi] - [chungumuloshi03@gmail.com]
 
 ---
 
